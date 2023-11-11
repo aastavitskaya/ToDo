@@ -1,0 +1,53 @@
+[
+    {
+        "model": "authapp.customuser",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$0Q8p8UKfUQsh5Zm5LOHeeo$whoxiF9/zsiKcCg99W8HHjL4/YXRuXfnl0ulxSlP2kU=",
+            "last_login": null,
+            "is_superuser": true,
+            "first_name": "",
+            "last_name": "",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2023-11-07T19:05:48.366Z",
+            "email": "admin@admin.ru",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "authapp.customuser",
+        "pk": 2,
+        "fields": {
+            "password": "pbkdf2_sha256$260000$1dBRBrAn4SusDQYyF6Ekmn$Mfb0Cg9Yy4ESVMcLVXgG2LuxM9Pjun+Qneotm1mNNOw=",
+            "last_login": null,
+            "is_superuser": true,
+            "first_name": "",
+            "last_name": "",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2023-11-07T19:05:48.366Z",
+            "email": "user@user.ru",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "authapp.customuser",
+        "pk": 3,
+        "fields": {
+            "password": "pbkdf2_sha256$260000$1dBRBrAn4SusDQYyF6Ekmn$Mfb0Cg9Yy4ESVMcLVXgG2LuxM9Pjun+Qneotm1mNNOw=",
+            "last_login": null,
+            "is_superuser": true,
+            "first_name": "",
+            "last_name": "",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2023-11-07T19:05:48.366Z",
+            "email": "user1@user.ru",
+            "groups": [],
+            "user_permissions": []
+        }
+    }
+]
