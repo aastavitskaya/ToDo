@@ -21,7 +21,7 @@ export function UserItem({ user }) {
                 </tr>
             </thead>
             <tbody>
-                {users.map((user => <UserItem user={user} />))}
+                {users.map(user => <UserItem user={user} key={user.email} />)}
             </tbody>
         </Table>
     );
