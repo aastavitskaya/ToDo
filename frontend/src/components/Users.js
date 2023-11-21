@@ -1,3 +1,5 @@
+import Table from 'react-bootstrap/Table';
+
 export function UserItem({ user }) {
     return (
       <tr>
@@ -8,15 +10,19 @@ export function UserItem({ user }) {
     );
   }
 
-  export default function UsersList({ authors }) {
+  export default function UsersList({ users }) {
     return (
-      <table>
-        <th>First name</th>
-        <th>Last Name</th>
-        <th>Email</th>
-        {users.map((user) => (
-          <UserItem user={user} />
-        ))}
-      </table>
+        <Table striped bordered hover>
+            <thead>
+                <tr>
+                    <th>First name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {users.map((user => <UserItem user={user} />))}
+            </tbody>
+        </Table>
     );
   }

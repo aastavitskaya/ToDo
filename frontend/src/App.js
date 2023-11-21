@@ -8,7 +8,7 @@ import axios from 'axios';
 
 function App() {
 
-  const [users, setUsers] = useState();
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
   axios.get("http://localhost:8000/api/users/")
