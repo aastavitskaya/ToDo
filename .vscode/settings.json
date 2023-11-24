@@ -1,0 +1,7 @@
+{
+    "python.poetryPath": "poetry", 
+    "python.terminal.activateEnvironment": true,
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    "python.venvPath": "/home/anastasia/.cache/pypoetry/virtualenvs/todo-vvelDoRx-py3.10",
+    "python.defaultInterpreterPath": "/home/anastasia/.cache/pypoetry/virtualenvs/todo-vvelDoRx-py3.10/bin/python"
+}
