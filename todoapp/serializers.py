@@ -12,7 +12,8 @@ class ProjectModelSerializer(HyperlinkedModelSerializer):
             "description",
             "project_team",
         ]
-        
+
+
 class ToDoModelSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = ToDo
