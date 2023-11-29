@@ -3,7 +3,7 @@ from todoapp.models import ToDo, Project
 
 
 class ProjectFilter(filters.FilterSet):
-    name = filters.CharFilter(lookup_expr='contains')
+    project_name = filters.CharFilter(lookup_expr='contains')
 
     class Meta:
         model = Project
