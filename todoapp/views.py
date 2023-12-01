@@ -17,7 +17,7 @@ class ProjectModelViewSet(ModelViewSet):
     serializer_class = ProjectModelSerializer
     queryset = Project.objects.all()
     pagination_class = ProjectLimitOffsetPagination
-    filter_class = ProjectFilter
+    filterset_class = ProjectFilter
 
 
 class ToDoLimitOffsetPagination(LimitOffsetPagination):

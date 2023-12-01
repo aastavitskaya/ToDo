@@ -1,4 +1,4 @@
-from rest_framework.mixins import CreateModelMixin, ListModelMixin, RetrieveModelMixin
+from rest_framework.mixins import CreateModelMixin, ListModelMixin, RetrieveModelMixin, UpdateModelMixin
 from rest_framework.viewsets import GenericViewSet
 from rest_framework.pagination import LimitOffsetPagination
 
@@ -10,7 +10,7 @@ class CustomUserLimitOffsetPagination(LimitOffsetPagination):
     default_limit = 2
 
 
-class CustomUserModelViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixin, GenericViewSet):
+class CustomUserModelViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixin, UpdateModelMixin, GenericViewSet,):
     queryset = CustomUser.objects.all()
     serializer_class = CustomUserModelSerializer
     pagination_class = CustomUserLimitOffsetPagination

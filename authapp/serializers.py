@@ -9,6 +9,7 @@ class CustomUserModelSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = CustomUser
         fields = [
+            "url",
             "password",
             "first_name",
             "last_name",
@@ -19,3 +20,9 @@ class CustomUserModelSerializer(HyperlinkedModelSerializer):
         password = validated_data.pop("password")
         validated_data["password"] = make_password(password)
         return super().create(validated_data)
+
+    def update(self, instance, validated_data):
+        password = validated_data.get("password")
+        if password:
+            validated_data["password"] = make_password(password)
+        return super().update(instance, validated_data)

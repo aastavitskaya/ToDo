@@ -1,4 +1,5 @@
 from django_filters import rest_framework as filters
+from django_filters.widgets import RangeWidget
 from todoapp.models import ToDo, Project
 
 
@@ -11,7 +12,8 @@ class ProjectFilter(filters.FilterSet):
 
 
 class ToDoFilter(filters.FilterSet):
-    created = filters.DateFromToRangeFilter()
+    created = filters.DateFromToRangeFilter(widget=RangeWidget(attrs={'type': 'date'}))
+
     class Meta:
         model = ToDo
         fields = ['project', 'created']
