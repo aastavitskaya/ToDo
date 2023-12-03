@@ -9,22 +9,22 @@ import ProjectDetail from './components/ProjectDetail';
 import NotFound404 from "./components/not-found";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
-import { BrowserRouter, Route, Routes, Link, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 
 
 function App() {
 
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-  axios.get("http://localhost:8000/api/users/")
-    .then(response => {
-        setUsers(response.data)
-    }).catch(error => {
-        console.error(error)
-    })
-  }, []);
+  // const [users, setUsers] = useState([]);
+  //
+  // useEffect(() => {
+  // axios.get("http://localhost:8000/api/users/")
+  //   .then(response => {
+  //       setUsers(response.data)
+  //   }).catch(error => {
+  //       console.error(error)
+  //   })
+  // }, []);
 
   const [projects, setProjects] = useState([]);
 

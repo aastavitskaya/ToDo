@@ -2,10 +2,10 @@ import { useParams } from "react-router-dom";
 import ProjectItem from "./Project";
 
 export default function ProjectDetail ({ items }) {
-  // const { id } = useParams();
-  // const filtered_items = items.filter((item) => {
-  //   return item.projects.id === +id;
-  // });
+  const { id } = useParams();
+  const filtered_items = items.filter((item) => {
+  return item.id === +id;
+  });
 
   return (
     <table>
@@ -16,7 +16,7 @@ export default function ProjectDetail ({ items }) {
         <th>Description</th>
         <th>Project Team</th>
       </tr>
-      {items.map((item) => (
+      {filtered_items.map((item) => (
         <ProjectItem item={item} />
       ))}
     </table>

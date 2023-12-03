@@ -1,9 +1,9 @@
-from rest_framework.serializers import HyperlinkedModelSerializer
+from rest_framework.serializers import ModelSerializer
 
 from todoapp.models import Project, ToDo
 
 
-class ProjectModelSerializer(HyperlinkedModelSerializer):
+class ProjectModelSerializer(ModelSerializer):
     class Meta:
         model = Project
         fields = [
@@ -15,7 +15,7 @@ class ProjectModelSerializer(HyperlinkedModelSerializer):
         ]
 
 
-class ToDoModelSerializer(HyperlinkedModelSerializer):
+class ToDoModelSerializer(ModelSerializer):
     class Meta:
         model = ToDo
         fields = [

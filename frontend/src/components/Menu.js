@@ -8,12 +8,12 @@ function Menu() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="/">Menu</Navbar.Brand>
+       <NavLink to="/" className='nav-link'>Home</NavLink>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <NavLink to="/projects">Projects</NavLink>
-            <NavLink to="/todo">TODO</NavLink>
+            <NavLink to="/projects" className='nav-link'>Projects</NavLink>
+            <NavLink to="/todo" className='nav-link'>TODO</NavLink>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
