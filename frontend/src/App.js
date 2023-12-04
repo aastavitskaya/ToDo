@@ -10,42 +10,19 @@ import NotFound404 from "./components/not-found";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { USERS_API, TODO_API, PROJECTS_API } from "./core/consts";
+import { fetchData } from "./core/actions"
 
 
 
 function App() {
-
   // const [users, setUsers] = useState([]);
-  //
-  // useEffect(() => {
-  // axios.get("http://localhost:8000/api/users/")
-  //   .then(response => {
-  //       setUsers(response.data)
-  //   }).catch(error => {
-  //       console.error(error)
-  //   })
-  // }, []);
-
   const [projects, setProjects] = useState([]);
-
-  useEffect(() => {
-  axios.get("http://localhost:8000/api/projects/")
-    .then(response => {
-        setProjects(response.data.results)
-    }).catch(error => {
-        console.error(error)
-    })
-  }, []);
-
   const [todo, setTodo] = useState([]);
 
   useEffect(() => {
-  axios.get("http://localhost:8000/api/todo/")
-    .then(response => {
-        setTodo(response.data.results)
-    }).catch(error => {
-        console.error(error)
-    })
+    fetchData(PROJECTS_API, setProjects);
+    fetchData(TODO_API, setTodo);
   }, []);
 
   return (
