@@ -1,19 +1,14 @@
 export default function ToDoItem ({ todo, users, projects }) {
+    const foundProject = projects.find(({id}) => id === todo.project);
+    const foundUser = users.find(({id}) => id === todo.user);
 
-  return (
-    <tr>
-      <td>{todo.id}</td>
-
-      <td>{projects.find(project => {
-              return (project.id === todo.project) ? project : null
-            }).project}</td>
-      <td>
-        {users.find(user => {
-              return (user.id === todo.user) ? user : null
-            }).username}
-      </td>
-      <td>{todo.created}</td>
-      <td>{todo.body}</td>
-    </tr>
-  );
-};
+    return (
+        <tr>
+          <td>{todo.id}</td>
+          <td>{foundProject ? foundProject.projectName : <small>сейчас все будет</small>}</td>
+          <td>{foundUser ? foundUser.email : <small>сейчас все будет</small>}</td>
+          <td>{todo.created}</td>
+          <td>{todo.body}</td>
+        </tr>
+      );
+    }

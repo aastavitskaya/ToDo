@@ -1,9 +1,9 @@
 import ToDoItem from './ToDo';
-
+import Table from 'react-bootstrap/Table';
 
 export default function ToDoList ({ items, users, projects }) {
   return (
-    <table>
+    <Table striped bordered hover>
       <thead>
         <tr>
           <th>ID</th>
@@ -14,8 +14,8 @@ export default function ToDoList ({ items, users, projects }) {
         </tr>
       </thead>
       <tbody>
-      {items.map(todo => <ToDoItem key={todo.id} items={todo} users={users} projects={projects} />)}
+      {items.map(todo => <ToDoItem key={todo.id} todo={todo} users={users} projects={projects} />)}
       </tbody>
-    </table>
+    </Table>
   );
 };

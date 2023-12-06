@@ -1,7 +1,7 @@
 import ProjectItem from './Project';
 import Table from 'react-bootstrap/Table';
 
-export default function ProjectList ({ items, users }) {
+export default function ProjectList ({ projects, users }) {
   return (
     <Table striped bordered hover>
     <thead>
@@ -14,8 +14,8 @@ export default function ProjectList ({ items, users }) {
       </tr>
     </thead>
     <tbody>
-      {items.map((item) => (
-        <ProjectItem item={item} users={users}  />
+      {projects.map((project) => (
+        <ProjectItem project={project} users={users}  />
       ))}
     </tbody>
     </Table>

@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 import ProjectItem from "./Project";
 
-export default function ProjectDetail ({ items, users}) {
+export default function ProjectDetail ({ projects, users}) {
   const { id } = useParams();
-  const filtered_items = items.filter((item) => {
-  return item.id === +id;
+  const filtered_items = projects.filter((project) => {
+  return project.id === +id;
   });
 
   return (
@@ -16,8 +16,8 @@ export default function ProjectDetail ({ items, users}) {
         <th>Description</th>
         <th>Project Team</th>
       </tr>
-      {filtered_items.map((item) => (
-        <ProjectItem item={item} users={users}/>
+      {filtered_items.map((project) => (
+        <ProjectItem project={project} users={users}/>
       ))}
     </table>
   );

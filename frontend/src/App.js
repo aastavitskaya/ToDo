@@ -32,9 +32,9 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="projects" element={<ProjectList items={projects} users={users} />} />
-          <Route path="todo" element={<ToDoList items={todo} users={users} project={projects} />} />
-          <Route path="project/:id" element={<ProjectDetail items={projects} users={users}/>} />
+          <Route path="projects" element={<ProjectList projects={projects} users={users} />} />
+          <Route path="todo" element={<ToDoList items={todo} users={users} projects={projects} />} />
+          <Route path="project/:id" element={<ProjectDetail projects={projects} users={users}/>} />
           <Route path="users" element={<UsersList users={users} />} />
           <Route path="*" element={<NotFound404 />} />
         </Routes>
