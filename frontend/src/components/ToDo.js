@@ -1,16 +1,16 @@
-import { Link } from "react-router-dom";
-
-export default function ToDoItem ({ todo, user, project }) {
-  const filteredUsers = user.filter(user => user.id === project.id);
+export default function ToDoItem ({ todo, users, projects }) {
 
   return (
     <tr>
       <td>{todo.id}</td>
-      <td><Link to={`/project/${project.id}`}>{todo.projectName}</Link></td>
+
+      <td>{projects.find(project => {
+              return (project.id === todo.project) ? project : null
+            }).project}</td>
       <td>
-        {filteredUsers.map(user => (
-          <div key={user.id}>{user.name}</div>
-        ))}
+        {users.find(user => {
+              return (user.id === todo.user) ? user : null
+            }).username}
       </td>
       <td>{todo.created}</td>
       <td>{todo.body}</td>

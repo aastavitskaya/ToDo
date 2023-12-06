@@ -1,9 +1,10 @@
 import ProjectItem from './Project';
+import Table from 'react-bootstrap/Table';
 
-
-export default function ProjectList ({ items }) {
+export default function ProjectList ({ items, users }) {
   return (
-    <table>
+    <Table striped bordered hover>
+    <thead>
       <tr>
         <th>ID</th>
         <th>Project Name</th>
@@ -11,9 +12,12 @@ export default function ProjectList ({ items }) {
         <th>Description</th>
         <th>Project Team</th>
       </tr>
+    </thead>
+    <tbody>
       {items.map((item) => (
-        <ProjectItem item={item} />
+        <ProjectItem item={item} users={users}  />
       ))}
-    </table>
+    </tbody>
+    </Table>
   );
 };
