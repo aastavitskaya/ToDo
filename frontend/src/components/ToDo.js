@@ -7,7 +7,7 @@ export default function ToDoItem ({ todo, users, projects }) {
           <td>{todo.id}</td>
           <td>{foundProject ? foundProject.projectName : <small>сейчас все будет</small>}</td>
           <td>{foundUser ? foundUser.email : <small>сейчас все будет</small>}</td>
-          <td>{todo.created}</td>
+          <td>{todo.formattedDate}</td>
           <td>{todo.body}</td>
         </tr>
       );

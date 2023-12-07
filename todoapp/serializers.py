@@ -1,5 +1,4 @@
-from rest_framework.serializers import ModelSerializer
-
+from rest_framework.serializers import ModelSerializer, SerializerMethodField
 from todoapp.models import Project, ToDo
 
 
@@ -16,6 +15,8 @@ class ProjectModelSerializer(ModelSerializer):
 
 
 class ToDoModelSerializer(ModelSerializer):
+    formatted_date = SerializerMethodField()
+
     class Meta:
         model = ToDo
         fields = [
@@ -24,6 +25,9 @@ class ToDoModelSerializer(ModelSerializer):
             "user",
             "body",
             "is_active",
+            "formatted_date",
             "created",
             "deleted"
         ]
+    def get_formatted_date(self, obj):
+        return obj.created.strftime("%d.%m.%Y %H:%M:%S")
