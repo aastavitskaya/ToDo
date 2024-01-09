@@ -15,6 +15,7 @@ function Menu() {
             <NavLink to="/projects" className='nav-link'>Projects</NavLink>
             <NavLink to="/users" className='nav-link'>Users</NavLink>
             <NavLink to="/todo" className='nav-link'>ToDo</NavLink>
+            <NavLink to="/login" className='nav-link'>LogIn</NavLink>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
