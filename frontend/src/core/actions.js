@@ -41,3 +41,8 @@ export function getToken(email, password, setToken) {
       console.error(error);
   })
 }
+
+export function logout(setToken) {
+  // разлогиниваем пользователя, стирая токены из state и cookies
+  storeToken('','', setToken);
+}

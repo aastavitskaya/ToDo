@@ -3,8 +3,11 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { NavLink } from "react-router-dom";
+import { logout } from "../core/actions"
 
-function Menu() {
+
+function Menu( {token, setToken} ) {
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
@@ -15,7 +18,13 @@ function Menu() {
             <NavLink to="/projects" className='nav-link'>Projects</NavLink>
             <NavLink to="/users" className='nav-link'>Users</NavLink>
             <NavLink to="/todo" className='nav-link'>ToDo</NavLink>
-            <NavLink to="/login" className='nav-link'>LogIn</NavLink>
+            {(token) ? (
+              <NavLink to="/" className="nav-link" onClick={() => logout(setToken)}>
+                Logout
+              </NavLink>) : (
+              <NavLink to="/login" className="nav-link">
+                Login
+              </NavLink>)}
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
