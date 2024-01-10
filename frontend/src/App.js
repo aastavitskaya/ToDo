@@ -10,7 +10,7 @@ import NotFound404 from "./components/not-found";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { USERS_API, TODO_API, PROJECTS_API } from "./core/consts";
-import { fetchData, getToken } from "./core/actions"
+import { fetchData, getToken, getHeaders, getTokenFromStorage } from "./core/actions"
 import UsersList from "./components/Users";
 import LoginForm from "./components/Auth";
 
@@ -22,6 +22,12 @@ function App() {
   const [token, setToken] = useState('');
 
   useEffect(() => {
+    // теперь вместо загрузки данных с бека мы пытаемся получить токен, записанный в cookies
+    getTokenFromStorage(setToken);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [] );
+
+  useEffect(() => {
     fetchData(USERS_API, setUsers);
     fetchData(PROJECTS_API, setProjects);
     fetchData(TODO_API, setTodo);
@@ -31,7 +37,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Menu />
+        <Menu token={token} setToken={setToken} />
 
         <Routes>
           <Route path="/" element={<Home />} />

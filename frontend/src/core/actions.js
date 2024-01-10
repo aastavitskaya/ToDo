@@ -4,7 +4,8 @@ import Cookies from "universal-cookie";
 
 
 export function fetchData(url, setState, data =[]) {
-    axios.get(url)
+    const headers = getHeaders();
+    axios.get(url, { headers })
         .then(response => {
             // если получаем ответ, то собираем данные в список педа,
             // складываем всё, что было в data и добавляем данные из response
@@ -45,4 +46,40 @@ export function getToken(email, password, setToken) {
 export function logout(setToken) {
   // разлогиниваем пользователя, стирая токены из state и cookies
   storeToken('','', setToken);
+}
+
+export function getHeaders() {
+  // функция получения заголовков для axios
+  // если в куках записан токен, добавляем его в заголовки,
+  // если нет то увы =)
+  const cookies = new Cookies();
+  const jwtToken = cookies.get('token');
+
+  let headers = {
+    'Content-Type': 'application/json'
+  }
+
+  if (jwtToken) {
+    headers['Authorization'] = `Bearer ${jwtToken}`
+  }
+
+  return headers
+}
+
+export function getTokenFromStorage(setToken) {
+  // эту функцию дергаем при перезагрузке страницы
+  // так как state при перезагрузке стирается, чтобы убедиться, что пользователь авторизован,
+  // надо лезть в cookies и искать там, но токены из cookies могут хранится протухшими,
+  // поэтому берём refresh и пытаемся по нему получить access, если удалось - отлично
+  // нет - просто разлогиниваем пользователя
+  const cookies = new Cookies();
+  const refresh = cookies.get('refresh');
+  const data = {refresh: refresh};
+  axios.post(TOKEN_REFRESH_URL, data)
+    .then(response => {
+      storeToken(response.data.access, refresh, setToken);
+  })
+    .catch(error => {
+      storeToken('','', setToken);
+    });
 }
