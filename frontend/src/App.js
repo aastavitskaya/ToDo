@@ -39,7 +39,7 @@ function App() {
           <Route path="todo" element={<ToDoList items={todo} users={users} projects={projects} />} />
           <Route path="project/:id" element={<ProjectDetail projects={projects} users={users}/>} />
           <Route path="users" element={<UsersList users={users} />} />
-          <Route path='login' element={<LoginForm getToken={getToken} />} />
+          <Route path='login' element={<LoginForm getToken={getToken} setToken={setToken} />} />
           <Route path="*" element={<NotFound404 />} />
         </Routes>
       </BrowserRouter>

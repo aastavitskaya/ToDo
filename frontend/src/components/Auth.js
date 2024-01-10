@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 
-const LoginForm = ({ getToken }) => {
+const LoginForm = ({ getToken, setToken }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    getToken(email, password);
+    getToken(email, password, setToken);
     setEmail('');
     setPassword('');
   };
