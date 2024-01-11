@@ -20,6 +20,7 @@ export function fetchData(url, setState, data =[]) {
             }
         }).catch(error => {
             // если ловим ошибку, просто выводим её в консоль
+            setState([])
             console.error(error);
     })
 }
