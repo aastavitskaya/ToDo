@@ -1,6 +1,7 @@
 import axios from "axios";
 import {TOKEN_REFRESH_URL, TOKEN_URL} from "./consts";
 import Cookies from "universal-cookie";
+import { toast } from 'react-toastify';
 
 
 export function fetchData(url, setState, data =[]) {
@@ -37,9 +38,12 @@ export function getToken(email, password, setToken) {
   // получаем jwt-token с бекенда, передавая email и password
   axios.post(TOKEN_URL, {email: email, password: password})
     .then(response => {
-      storeToken(response.data.access, response.data.refresh, setToken);
+        toast("Я прекрасный тост (с маслом и медком)! Появляюсь, когда ваш клингонский безупречен и подходит под" +
+            " самый несуществующий email")
+        storeToken(response.data.access, response.data.refresh, setToken);
       console.log('JWT-токен:', response.data.access);
     }).catch(error => {
+        toast("Походу 🤨 надо было подучить клингонский")
       console.error(error);
   })
 }
