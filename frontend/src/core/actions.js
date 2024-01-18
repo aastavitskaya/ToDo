@@ -2,11 +2,12 @@ import axios from "axios";
 import {TOKEN_REFRESH_URL, TOKEN_URL} from "./consts";
 import Cookies from "universal-cookie";
 import { toast } from 'react-toastify';
+import axiosInstance from "./interceptor";
 
 
 export function fetchData(url, setState, data =[]) {
     const headers = getHeaders();
-    axios.get(url, { headers })
+    axiosInstance.get(url, { headers })
         .then(response => {
             // если получаем ответ, то собираем данные в список педа,
             // складываем всё, что было в data и добавляем данные из response

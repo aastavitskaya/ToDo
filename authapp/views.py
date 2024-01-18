@@ -1,16 +1,27 @@
 from rest_framework.mixins import CreateModelMixin, ListModelMixin, RetrieveModelMixin, UpdateModelMixin
 from rest_framework.viewsets import GenericViewSet
 from rest_framework.pagination import LimitOffsetPagination
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 
 from authapp.models import CustomUser
 from authapp.serializers import CustomUserModelSerializer
 
 
 class CustomUserLimitOffsetPagination(LimitOffsetPagination):
-    default_limit = 2
+    default_limit = 18
 
 
 class CustomUserModelViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixin, UpdateModelMixin, GenericViewSet,):
     queryset = CustomUser.objects.all()
     serializer_class = CustomUserModelSerializer
     pagination_class = CustomUserLimitOffsetPagination
+
+class WhoAmIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        user = request.user.first_name
+        serializer = CustomUserModelSerializer(user)
+        return Response(serializer.data)
