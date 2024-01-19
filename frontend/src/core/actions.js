@@ -89,3 +89,15 @@ export function getTokenFromStorage(setToken) {
       storeToken('','', setToken);
     });
 }
+
+export function fetchMe(url, setState) {
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      setState(data);
+      console.log(setState);
+    })
+    .catch(error => {
+      console.error(error);
+    });
+}

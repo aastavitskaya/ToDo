@@ -6,11 +6,14 @@ import { NavLink } from "react-router-dom";
 import { logout } from "../core/actions"
 
 
-function Menu( {token, setToken} ) {
+function Menu( {token, setToken, name} ) {
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
+        <Navbar.Brand>
+          Привет, {name}
+        </Navbar.Brand>
        <NavLink to="/" className='nav-link'>Home</NavLink>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

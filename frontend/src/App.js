@@ -1,6 +1,6 @@
 import './App.css';
 import { useState, useEffect } from "react";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Menu from './components/Menu';
 import Footer from './components/Footer';
@@ -11,8 +11,8 @@ import ProjectDetail from './components/ProjectDetail';
 import NotFound404 from "./components/not-found";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { USERS_API, TODO_API, PROJECTS_API } from "./core/consts";
-import { fetchData, getToken, getHeaders, getTokenFromStorage } from "./core/actions"
+import { USERS_API, TODO_API, PROJECTS_API, NAME_API } from "./core/consts";
+import { fetchData, getToken, getTokenFromStorage, fetchMe } from "./core/actions"
 import UsersList from "./components/Users";
 import LoginForm from "./components/Auth";
 
@@ -22,6 +22,7 @@ function App() {
   const [projects, setProjects] = useState([]);
   const [todo, setTodo] = useState([]);
   const [token, setToken] = useState('');
+  const [name, setName] = useState('');
 
   useEffect(() => {
     // теперь вместо загрузки данных с бека мы пытаемся получить токен, записанный в cookies
@@ -33,15 +34,16 @@ function App() {
     fetchData(USERS_API, setUsers);
     fetchData(PROJECTS_API, setProjects);
     fetchData(TODO_API, setTodo);
-    
-  }, [token]);
+    fetchMe(NAME_API, setName);
+
+  }, []);
 
   return (
     <div className="body">
       <div className="top">
         <ToastContainer />
         <BrowserRouter>
-          <Menu token={token} setToken={setToken} />
+          <Menu token={token} setToken={setToken} name={name}/>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="projects" element={<ProjectList projects={projects} users={users} />} />

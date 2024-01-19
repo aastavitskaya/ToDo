@@ -22,6 +22,4 @@ class WhoAmIView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
-        user = request.user.first_name
-        serializer = CustomUserModelSerializer(user)
-        return Response(serializer.data)
+        return Response({"firstName": request.user.first_name})
