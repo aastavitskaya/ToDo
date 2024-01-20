@@ -36,7 +36,7 @@ function App() {
     fetchData(TODO_API, setTodo);
     fetchMe(NAME_API, setName);
 
-  }, []);
+  }, [token]);
 
   return (
     <div className="body">

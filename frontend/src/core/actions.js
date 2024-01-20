@@ -91,13 +91,14 @@ export function getTokenFromStorage(setToken) {
 }
 
 export function fetchMe(url, setState) {
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      setState(data);
-      console.log(setState);
+    const headers = getHeaders();
+  axiosInstance.get(url, {headers})
+    .then(response => {
+      setState(response.data.firstName);
+      console.log(response.data);
     })
     .catch(error => {
+        setState('');
       console.error(error);
     });
 }
