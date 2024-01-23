@@ -3,6 +3,7 @@ from rest_framework import status
 from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.permissions import IsAuthenticated
 
 from todoapp.filters import ToDoFilter, ProjectFilter
 from todoapp.serializers import ProjectModelSerializer, ToDoModelSerializer
@@ -18,6 +19,7 @@ class ProjectModelViewSet(ModelViewSet):
     queryset = Project.objects.all()
     pagination_class = ProjectLimitOffsetPagination
     filterset_class = ProjectFilter
+    permission_classes = [IsAuthenticated]
 
 
 class ToDoLimitOffsetPagination(LimitOffsetPagination):
@@ -29,6 +31,7 @@ class ToDoModelViewSet(ModelViewSet):
     queryset = ToDo.objects.all()
     pagination_class = ToDoLimitOffsetPagination
     filterset_class = ToDoFilter
+    permission_classes = [IsAuthenticated]
 
     def destroy(self, request, *args, **kwargs):
         try:
