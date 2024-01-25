@@ -7,7 +7,7 @@ class Project(models.Model):
     project_name = models.CharField(max_length=256)
     link_to_repo = models.CharField(max_length=256, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
-    project_team = models.ManyToManyField(authapp_models.CustomUser)
+    project_team = models.ManyToManyField(authapp_models.CustomUser, blank=True)
     created = models.DateTimeField(auto_now_add=True, editable=False)
     updated = models.DateTimeField(auto_now=True, editable=False)
     deleted = models.BooleanField(default=False)

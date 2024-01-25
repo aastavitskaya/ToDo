@@ -52,8 +52,7 @@ class TestProjectViewSet(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_put_mixer(self):
-        project = mixer.blend(Project)
+        project = mixer.blend(Project, project_name="New name")
         self.client.login(email=self.email, password=self.password)
-        response = self.client.put(f'{self.url}/{project.id}/', {"description": "new_text"})
+        response = self.client.put(f'{self.url}{project.id}/', {"project_name": "new text"})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-
