@@ -2,7 +2,7 @@ from typing import List
 
 import pytest
 
-from models import ToDo, Project
+from .models import ToDo, Project
 
 
 @pytest.fixture

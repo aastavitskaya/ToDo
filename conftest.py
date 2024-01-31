@@ -1,4 +1,4 @@
-from typing import Tuple
+from typing import Tuple, List
 
 import pytest
 from authapp.models import CustomUser
@@ -7,15 +7,16 @@ from rest_framework.test import APIClient
 from rest_framework_simplejwt.tokens import RefreshToken
 
 TEST_USER = 'test_user@mail.ru'
-ADMIN_EMAIL = 'admin@mail.ru'
+ADMIN_EMAIL = 'test_admin@mail.ru'
 TEST_PASSWORD = 'password'
+USERS_COUNT = 12
 
 
 @pytest.fixture(scope='session')  # function, class, module, package, session
 def django_db_setup(django_db_setup, django_db_blocker):
 
     with django_db_blocker.unblock():
-        call_command('loaddata', 'testAPI/fixtures/bd.json')
+        call_command('loaddata', 'bd.json')
 
 
 @pytest.fixture
@@ -31,7 +32,7 @@ def user() -> CustomUser:
 
 @pytest.fixture
 def admin() -> CustomUser:
-    test_admin = CustomUser.objects.create_superuser(email=ADMIN_EMAIL, is_superuser=True, is_staff=True)
+    test_admin = CustomUser.objects.create_superuser(email=ADMIN_EMAIL, password=TEST_PASSWORD, is_superuser=True, is_staff=True)
     return test_admin
 
 
@@ -59,7 +60,19 @@ def admin_client(admin: 'CustomUser', anon_client: 'APIClient') -> Tuple[CustomU
 
 
 @pytest.fixture
-def user_with_password(user: 'CustomUser'):
+def user_with_password(user: CustomUser):
     user.set_password(TEST_PASSWORD)
     user.save()
     return user
+
+
+@pytest.fixture
+def random_users(user_with_password) -> List[CustomUser]:
+    users = []
+    for i in range(USERS_COUNT):
+        email = f'super_new_user{i}@mail.ru'
+        user = user_with_password
+        user.email = email
+        user.save()
+        users.append(user)
+    return users
