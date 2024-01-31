@@ -15,6 +15,14 @@ class Project(models.Model):
     def __str__(self):
         return f"{self.project_name}"
 
+    def get_project_team(self):
+        project_team = self.project_team.all()
+        names = []
+        for user in project_team:
+            if user.first_name:
+                names.append(user.first_name)
+        return names
+
 
 class ToDo(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)

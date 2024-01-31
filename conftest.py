@@ -2,6 +2,7 @@ from typing import Tuple, List
 
 import pytest
 from authapp.models import CustomUser
+from todoapp.models import Project
 from django.core.management import call_command
 from rest_framework.test import APIClient
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -67,12 +68,14 @@ def user_with_password(user: CustomUser):
 
 
 @pytest.fixture
-def random_users(user_with_password) -> List[CustomUser]:
+def random_users() -> List[CustomUser]:
     users = []
-    for i in range(USERS_COUNT):
+    for i in range(12):
         email = f'super_new_user{i}@mail.ru'
-        user = user_with_password
-        user.email = email
-        user.save()
+        user = CustomUser.objects.create(email=email, password=TEST_PASSWORD)
         users.append(user)
     return users
+
+@pytest.fixture
+def project() -> Project:
+    return Project.objects.first()
