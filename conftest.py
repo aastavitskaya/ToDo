@@ -87,4 +87,8 @@ def random_users() -> List[CustomUser]:
 @pytest.fixture
 def project():
     project = mixer.blend(Project)
+    user1 = mixer.blend(CustomUser, first_name='User1')
+    user2 = mixer.blend(CustomUser, first_name='User2')
+    user3 = mixer.blend(CustomUser, first_name='User3')
+    project.project_team.add(user1, user2, user3)
     return project

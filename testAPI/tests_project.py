@@ -13,20 +13,13 @@ from authapp.models import CustomUser
 def test_get_project_team(
         project: Project
 ):
-
-    user1 = mixer.blend(CustomUser, first_name='User1')
-    user2 = mixer.blend(CustomUser, first_name='User2')
-    user3 = mixer.blend(CustomUser, first_name='User3')
-    project.project_team.add(user1, user2, user3)
-
     names = project.get_project_team()
     assert names != []
     assert names.count() == 3
 
-    user2.first_name = ''
-    user2.save()
+    project.get_project_team().update(first_name="")
     names2 = project.get_project_team()
-    assert '' in names2
+    assert "" in names2
 
     project.project_team.clear()
     names3 = project.get_project_team()
