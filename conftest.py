@@ -1,11 +1,15 @@
 from typing import Tuple, List
 
 import pytest
-from authapp.models import CustomUser
-from todoapp.models import Project
+
 from django.core.management import call_command
 from rest_framework.test import APIClient
 from rest_framework_simplejwt.tokens import RefreshToken
+from mixer.backend.django import mixer
+
+from authapp.models import CustomUser
+from todoapp.models import Project
+
 
 TEST_USER = 'test_user@mail.ru'
 ADMIN_EMAIL = 'test_admin@mail.ru'
@@ -76,6 +80,11 @@ def random_users() -> List[CustomUser]:
         users.append(user)
     return users
 
+# @pytest.fixture
+# def project() -> Project:
+#     return Project.objects.first()
+
 @pytest.fixture
-def project() -> Project:
-    return Project.objects.first()
+def project():
+    project = mixer.blend(Project)
+    return project

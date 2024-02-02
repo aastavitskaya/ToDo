@@ -16,12 +16,7 @@ class Project(models.Model):
         return f"{self.project_name}"
 
     def get_project_team(self):
-        project_team = self.project_team.all()
-        names = []
-        for user in project_team:
-            if user.first_name:
-                names.append(user.first_name)
-        return names
+        return self.project_team.values_list('first_name', flat=True)
 
 
 class ToDo(models.Model):
