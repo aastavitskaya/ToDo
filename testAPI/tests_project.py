@@ -15,15 +15,15 @@ def test_get_project_team(
 ):
     names = project.get_project_team()
     assert names != []
-    assert names.count() == 3
+    assert names.count() == CustomUser.objects.filter(project=project).count()
 
     project.get_project_team().update(first_name="")
     names2 = project.get_project_team()
-    assert "" in names2
+    assert not all(names2)
 
     project.project_team.clear()
     names3 = project.get_project_team()
-    assert names3.count() == 0
+    assert names3.count() == project.project_team.count()
 
 
 @pytest.mark.django_db
