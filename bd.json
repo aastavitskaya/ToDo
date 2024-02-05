@@ -1,0 +1,478 @@
+[
+{
+  "model": "auth.group",
+  "pk": 1,
+  "fields": {
+    "name": "администратор",
+    "permissions": [
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ]
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 2,
+  "fields": {
+    "name": "Разработчики",
+    "permissions": [
+      24,
+      28,
+      29,
+      30,
+      31,
+      32
+    ]
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 3,
+  "fields": {
+    "name": "владельцы проектов",
+    "permissions": [
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ]
+  }
+},
+{
+  "model": "authapp.customuser",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$KqCLj9KGGk1ZUcEzUSszYf$9xCerkbcZPinEDoTSdK1xGQLZsXJ+Y1XdHu8sJFau/Y=",
+    "last_login": "2024-01-24T18:46:13.691Z",
+    "is_superuser": true,
+    "first_name": "Teisy",
+    "last_name": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-11-27T20:05:07Z",
+    "email": "admin@mail.ru",
+    "groups": [
+      1
+    ],
+    "user_permissions": [
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ]
+  }
+},
+{
+  "model": "authapp.customuser",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$IC2dzsa5se0AfvvBiuHj7u$76aOIVASXghYZm9tMtRExeAV3vOe/B/TrgrGXpLknDo=",
+    "last_login": "2024-01-18T09:50:57.622Z",
+    "is_superuser": false,
+    "first_name": "Иван",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-11-27T20:05:08Z",
+    "email": "user1@user.ru",
+    "groups": [
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authapp.customuser",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$VHkrfKPep7dxmRpqI2B4Rf$PeDCWm1wnSk8VWZYheAu/nAkJFNZ0xAYnK1xYlcYi6Y=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-11-27T20:05:09Z",
+    "email": "user2@user.ru",
+    "groups": [
+      3
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authapp.customuser",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$jGZ8uGYhvGpNllwLh8ePW8$m6/FViAWI+W+rHdE+fw3kPUwiA82p419VAS5/C5FYHE=",
+    "last_login": "2023-12-28T11:14:56.366Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-11-27T20:05:10Z",
+    "email": "user3@user.ru",
+    "groups": [
+      3
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authapp.customuser",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$ztaGYgbLcYR6bodbEKdRQO$NKyNtxPsXn1LUsD9spcV98/W4trb5CTcPaPiCqg8QgQ=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-11-27T20:05:10.878Z",
+    "email": "user4@user.ru",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authapp.customuser",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$2jvMxJFf2DOQc3hxkpPZC8$DCEtU5NwEazkCDi6/MoXXt6uNeZUZSACetGslklvYM0=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-11-27T20:05:11.658Z",
+    "email": "user5@user.ru",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authapp.customuser",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$KEUwOsWiz13HIhOJB9TDRE$0cY9EIWoHkW8nVQsmkUIksbPqYUyNLEUD7NP2s9z5Ms=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-11-27T20:05:12.544Z",
+    "email": "user6@user.ru",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authapp.customuser",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$7SnqfvHj1vpcm8YMd9tnpn$lAGjij7rx0erQD2yIq8+KS8TpM5w0DMugIE6g3tTi9k=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-11-27T20:05:13.453Z",
+    "email": "user7@user.ru",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authapp.customuser",
+  "pk": 9,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$6qYJATyv9BkvAyN3XmrZEM$HxPPoqQ6Iw6UOmEqd1+1JfG2rDmngstsOMuYp0FKfqU=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-11-27T20:05:14.331Z",
+    "email": "user8@user.ru",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authapp.customuser",
+  "pk": 10,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$sMK5MlUc6Jvt3PLEl5AdhU$guS0Blfc2Xbvw5xfzsDmWtbDpCGzPANIK6+CfbqIWIY=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-11-27T20:05:15.211Z",
+    "email": "user9@user.ru",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authapp.customuser",
+  "pk": 11,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$FhMJbJFmcOTkbjmt1RrPZ8$kT6k5PVdIALsXYMyKeiNHYQ7YgEbAptbjasaqp2wNIM=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-11-27T20:05:15.980Z",
+    "email": "user10@user.ru",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authapp.customuser",
+  "pk": 12,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$pI1m7CD7xOXNLJdUAvo4U5$+FfFRzna1JMXaNgmecCCCYWgohvQNXu116jdTSzTrOA=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-11-27T20:05:16.737Z",
+    "email": "user11@user.ru",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authapp.customuser",
+  "pk": 13,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$aMWEWf8fZQCjcBmydLgOT6$j0uxRbSl6gW9GDT2F6GWN+aXjhy0itdBS5qYQX5zV14=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-11-27T20:05:17.541Z",
+    "email": "user12@user.ru",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authapp.customuser",
+  "pk": 14,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$KfNblatEsGsFLQkjUwA3zY$l9j6wX3bP0ub+w9ruOktmid7r5kpCiYBOKAfvUnymAI=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-11-27T20:05:18.366Z",
+    "email": "user13@user.ru",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authapp.customuser",
+  "pk": 15,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$kyIKBSnefapiP0NwDrK4ju$miyFc28RifgqZmNC/dIISRO1eMAsjiwf1HCwM7aQIdw=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-11-27T20:05:19.175Z",
+    "email": "user14@user.ru",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authapp.customuser",
+  "pk": 16,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$r4YnIcf6JI7kaG2VxXzLNv$WWRLHeBMfiylnfO+fAKnOqzEgkzCsoiLpStLU4zyig4=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-11-27T20:05:20.053Z",
+    "email": "user15@user.ru",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authapp.customuser",
+  "pk": 17,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$iPZeep4FRpGP35xpGmSYkA$oKkd1DrHz1TgTmT5yJssxADJSjF0bwTYQRHXh/eg/4c=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-11-27T20:05:21.030Z",
+    "email": "user16@user.ru",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authapp.customuser",
+  "pk": 18,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$Sve8hrAGqJr91cp3o1D7ar$ubpWqfy7jdGWrQzk+Ngsb/6ASpy121PQ15zJzmxhB10=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-11-27T20:05:21.881Z",
+    "email": "user17@user.ru",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "todoapp.project",
+  "pk": 1,
+  "fields": {
+    "project_name": "hello",
+    "link_to_repo": "",
+    "description": "description",
+    "created": "2023-11-29T20:21:11.515Z",
+    "updated": "2024-01-24T18:59:02.369Z",
+    "deleted": false,
+    "project_team": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "todoapp.project",
+  "pk": 2,
+  "fields": {
+    "project_name": "jingle_bells",
+    "link_to_repo": "",
+    "description": "",
+    "created": "2023-11-29T20:21:41.330Z",
+    "updated": "2023-11-29T20:21:41.330Z",
+    "deleted": false,
+    "project_team": [
+      5,
+      6,
+      7
+    ]
+  }
+},
+{
+  "model": "todoapp.project",
+  "pk": 3,
+  "fields": {
+    "project_name": "jingle_bells",
+    "link_to_repo": "",
+    "description": "",
+    "created": "2023-11-29T20:25:46.491Z",
+    "updated": "2023-11-29T20:25:46.491Z",
+    "deleted": false,
+    "project_team": [
+      5,
+      6,
+      7
+    ]
+  }
+},
+{
+  "model": "todoapp.project",
+  "pk": 4,
+  "fields": {
+    "project_name": "2",
+    "link_to_repo": "",
+    "description": "",
+    "created": "2023-11-29T20:27:00.327Z",
+    "updated": "2023-11-29T20:27:00.327Z",
+    "deleted": false,
+    "project_team": [
+      15,
+      16,
+      17
+    ]
+  }
+},
+{
+  "model": "todoapp.todo",
+  "pk": 1,
+  "fields": {
+    "project": 1,
+    "user": 1,
+    "body": "Say \"hello\" and smile 😊",
+    "is_active": true,
+    "created": "2023-12-02T21:40:35.033Z",
+    "updated": "2023-12-02T21:40:35.034Z",
+    "deleted": false
+  }
+},
+{
+  "model": "todoapp.todo",
+  "pk": 2,
+  "fields": {
+    "project": 2,
+    "user": 1,
+    "body": "Jingle bells, jingle bells\r\nJingle all the way\r\nOh, what fun it is to ride\r\nIn a one horse open sleigh",
+    "is_active": false,
+    "created": "2023-12-02T21:42:15.239Z",
+    "updated": "2023-12-02T21:42:15.239Z",
+    "deleted": false
+  }
+}
+]
