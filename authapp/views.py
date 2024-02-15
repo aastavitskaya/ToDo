@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 
 from authapp.models import CustomUser
-from authapp.serializers import CustomUserModelSerializer
+from authapp.serializers import CustomUserModelSerializer, NewCustomUserModelSerializer
 
 
 class CustomUserLimitOffsetPagination(LimitOffsetPagination):
@@ -17,6 +17,12 @@ class CustomUserModelViewSet(CreateModelMixin, ListModelMixin, RetrieveModelMixi
     queryset = CustomUser.objects.all()
     serializer_class = CustomUserModelSerializer
     pagination_class = CustomUserLimitOffsetPagination
+
+    def get_serializer_class(self):
+        print(self.request.version)
+        if self.request.version == "2.0":
+            return NewCustomUserModelSerializer
+        return CustomUserModelSerializer
 
 class WhoAmIView(APIView):
     permission_classes = [IsAuthenticated]
