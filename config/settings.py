@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "authapp",
     "todoapp",
     "drf_yasg",
+    "graphene_django",
 ]
 
 MIDDLEWARE = [
@@ -171,4 +172,8 @@ SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "ROTATE_REFRESH_TOKENS": False,
+}
+
+GRAPHENE = {
+    "SCHEMA": "config.schema.schema"
 }
