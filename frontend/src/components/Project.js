@@ -1,8 +1,13 @@
 import { Link, useLocation  } from "react-router-dom";
+import { deleteItem } from '../core/actions';
+import { PROJECTS_API } from '../core/consts';
 
 
-export default function ProjectItem ({ project, users }) {
+export default function ProjectItem ({ project, users, setProjects }) {
   const location = useLocation();
+  const handleDelete = () => {
+      deleteItem(PROJECTS_API, project.id, setProjects);
+  };
 
   return (
     <tr>
@@ -21,6 +26,12 @@ export default function ProjectItem ({ project, users }) {
           return (!!contributor) ? <p key={id}>{contributor.email}</p> : <p>Loading...</p>;
       })}
       </td>
+      {location.pathname === "/projects" && (
+        // Кнопка "Delete" только на странице "/projects"
+        <td>
+          <button onClick={handleDelete}>Delete</button>
+        </td>
+      )}
     </tr>
   );
 };
