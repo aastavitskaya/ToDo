@@ -47,7 +47,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="projects" element={<ProjectList projects={projects} users={users} setProjects={setProjects}/>} />
-            <Route path="todo" element={<ToDoList items={todo} users={users} projects={projects} />} />
+            <Route path="todo" element={<ToDoList items={todo} users={users} projects={projects} setTodo={setTodo} />} />
             <Route path="project/:id" element={<ProjectDetail projects={projects} users={users} />} />
             <Route path="users" element={<UsersList users={users} />} />
             <Route path="login" element={<LoginForm getToken={getToken} setToken={setToken} />} />
