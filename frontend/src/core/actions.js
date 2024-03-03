@@ -117,3 +117,17 @@ export function deleteItem(url, id, setState) {
       console.error(error);
     })
 }
+
+export function createItem(url, data, setState) {
+  // функция для создания записей в бд на беке,
+  // передаем в неё один из URL из consts.js и data из формы
+  // если на беке всё ок и ответ 201, снова запрашиваем данные с бека и перезаписываем state
+  const headers = getHeaders();
+  axiosInstance.post(url, data,{headers})
+    .then(response => {
+      fetchData(url, setState);
+    })
+    .catch(error => {
+      console.error(error);
+    })
+}

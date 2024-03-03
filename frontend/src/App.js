@@ -15,6 +15,7 @@ import { USERS_API, TODO_API, PROJECTS_API, NAME_API } from "./core/consts";
 import { fetchData, getToken, getTokenFromStorage, fetchMe } from "./core/actions"
 import UsersList from "./components/Users";
 import LoginForm from "./components/Auth";
+import CreateProject from "./components/ProjectForm";
 
 
 function App() {
@@ -47,6 +48,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="projects" element={<ProjectList projects={projects} users={users} setProjects={setProjects}/>} />
+            <Route path="projects/create" element={<CreateProject users={users} setProjects={setProjects}/>} />
+            <Route path="users" element={<UsersList users={users} />} />
             <Route path="todo" element={<ToDoList items={todo} users={users} projects={projects} setTodo={setTodo} />} />
             <Route path="project/:id" element={<ProjectDetail projects={projects} users={users} />} />
             <Route path="users" element={<UsersList users={users} />} />

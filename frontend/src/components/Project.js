@@ -1,4 +1,4 @@
-import { Link, useLocation  } from "react-router-dom";
+import { Link, useLocation, NavLink } from "react-router-dom";
 import { deleteItem } from '../core/actions';
 import { PROJECTS_API } from '../core/consts';
 
@@ -32,6 +32,7 @@ export default function ProjectItem ({ project, users, setProjects }) {
           <button onClick={handleDelete}>Delete</button>
         </td>
       )}
+      <NavLink to='/projects/create'>Create</NavLink>
     </tr>
   );
 };

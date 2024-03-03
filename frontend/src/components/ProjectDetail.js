@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import {NavLink, useParams} from "react-router-dom";
 import ProjectItem from "./Project";
 
 export default function ProjectDetail ({ projects, users}) {
@@ -19,6 +19,7 @@ export default function ProjectDetail ({ projects, users}) {
       {filtered_items.map((project) => (
         <ProjectItem project={project} users={users}/>
       ))}
+      <NavLink to='/projects/create'>Create</NavLink>
     </table>
   );
 };
