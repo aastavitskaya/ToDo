@@ -16,6 +16,7 @@ import { fetchData, getToken, getTokenFromStorage, fetchMe } from "./core/action
 import UsersList from "./components/Users";
 import LoginForm from "./components/Auth";
 import CreateProject from "./components/ProjectForm";
+import CreateTodo from "./components/ToDoForm";
 
 
 function App() {
@@ -44,13 +45,14 @@ function App() {
       <div className="top">
         <ToastContainer />
         <BrowserRouter>
-          <Menu token={token} setToken={setToken} name={name}/>
+          <Menu token={token} setToken={setToken} name={name.firstName}/>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="projects" element={<ProjectList projects={projects} users={users} setProjects={setProjects}/>} />
             <Route path="projects/create" element={<CreateProject users={users} setProjects={setProjects}/>} />
             <Route path="users" element={<UsersList users={users} />} />
             <Route path="todo" element={<ToDoList items={todo} users={users} projects={projects} setTodo={setTodo} />} />
+             <Route path="todo/create" element={<CreateTodo projects={projects} setTodo={setTodo} users={setUsers}/>} />
             <Route path="project/:id" element={<ProjectDetail projects={projects} users={users} />} />
             <Route path="users" element={<UsersList users={users} />} />
             <Route path="login" element={<LoginForm getToken={getToken} setToken={setToken} />} />
