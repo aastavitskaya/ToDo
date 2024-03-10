@@ -137,3 +137,16 @@ export function createItem(url, data, setState) {
       console.error(error);
     })
 }
+
+export function updateItem(url, id, data, setState) {
+  const headers = getHeaders();
+  axiosInstance.patch(`${url}${id}/`, data,{headers})
+    .then(response => {
+      fetchData(url, setState);
+    })
+    .catch(error => {
+      console.error(error);
+    })
+}
+
+
