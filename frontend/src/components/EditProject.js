@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import { updateItem } from '../core/actions';
 import { PROJECTS_API } from '../core/consts';
-import { Link } from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 
 export default function EditProjectForm ({ projects, setProjects }){
-  const [editedProject, setEditedProject] = useState({
-    id: projects.id,
-    projectName: projects.projectName,
-    linkToRepo: projects.linkToRepo,
-    description: projects.description,
-    projectTeam: projects.projectTeam,
-  });
+
+  const { id } = useParams()
+
+  const filterProject = projects.find(project => {
+    return (project.id === +id)
+      ? project
+      : null
+  })
+
+  const [editedProject, setEditedProject] = useState(filterProject);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -31,7 +34,7 @@ export default function EditProjectForm ({ projects, setProjects }){
   const filterProjectsById = (id) => projects.filter((project) => project.id !== id);
 
   const handleUpdate = () => {
-    updateItem(PROJECTS_API, editedProject.id, editedProject, (prevProjects) => filterProjectsById(editedProject.id, prevProjects), setProjects);
+    updateItem(PROJECTS_API, editedProject.id, editedProject, setProjects)
   };
 
 

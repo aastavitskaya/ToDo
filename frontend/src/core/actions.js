@@ -94,17 +94,10 @@ export function fetchMe(url, setState) {
     const headers = getHeaders();
   axiosInstance.get(url, {headers})
     .then(response => {
-      setState({
-        id: response.data.id,
-        firstName: response.data.firstName
-      });
-      console.log(response.data);
+      setState(response.data);
     })
     .catch(error => {
-        setState({
-        id: '',
-        firstName: ''
-      });
+        setState({});
       console.error(error);
     });
 }
