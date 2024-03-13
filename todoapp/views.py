@@ -21,6 +21,15 @@ class ProjectModelViewSet(ModelViewSet):
     filterset_class = ProjectFilter
     permission_classes = [IsAuthenticated]
 
+    def destroy(self, request, *args, **kwargs):
+        try:
+            instance = self.get_object()
+            instance.deleted = True
+            instance.save()
+        except:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        else:
+            return Response(status=status.HTTP_204_NO_CONTENT)
 
 class ToDoLimitOffsetPagination(LimitOffsetPagination):
     page_size = 20

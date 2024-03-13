@@ -94,11 +94,52 @@ export function fetchMe(url, setState) {
     const headers = getHeaders();
   axiosInstance.get(url, {headers})
     .then(response => {
-      setState(response.data.firstName);
-      console.log(response.data);
+      setState(response.data);
     })
     .catch(error => {
-        setState('');
+        setState({});
       console.error(error);
     });
 }
+
+
+export function deleteItem(url, id, setState) {
+  // функция для удаления записей в бд на беке,
+  // передаем в неё один из URL из consts.js и id того инстанса, который хотим удалить
+  // если на беке всё ок и ответ успешный, просто запрашиваем данные с бека и перезаписываем state
+  const headers = getHeaders();
+  axiosInstance.delete(`${url}${id}/` , {headers})
+    .then(response => {
+      fetchData(url, setState);
+    })
+    .catch(error => {
+      console.error(error);
+    })
+}
+
+export function createItem(url, data, setState) {
+  // функция для создания записей в бд на беке,
+  // передаем в неё один из URL из consts.js и data из формы
+  // если на беке всё ок и ответ 201, снова запрашиваем данные с бека и перезаписываем state
+  const headers = getHeaders();
+  axiosInstance.post(url, data,{headers})
+    .then(response => {
+      fetchData(url, setState);
+    })
+    .catch(error => {
+      console.error(error);
+    })
+}
+
+export function updateItem(url, id, data, setState) {
+  const headers = getHeaders();
+  axiosInstance.patch(`${url}${id}/`, data,{headers})
+    .then(response => {
+      fetchData(url, setState);
+    })
+    .catch(error => {
+      console.error(error);
+    })
+}
+
+
