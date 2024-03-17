@@ -1,6 +1,6 @@
 import pytest
 
-from authapp.models import CustomUser
+from backend.authapp.models import CustomUser
 
 
 PASSWORD = 'password'

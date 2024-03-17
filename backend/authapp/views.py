@@ -5,8 +5,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 
-from authapp.models import CustomUser
-from authapp.serializers import CustomUserModelSerializer, NewCustomUserModelSerializer
+from backend.authapp.models import CustomUser
+from backend.authapp.serializers import CustomUserModelSerializer, NewCustomUserModelSerializer
 
 
 class CustomUserLimitOffsetPagination(LimitOffsetPagination):

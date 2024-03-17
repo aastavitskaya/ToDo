@@ -1,6 +1,6 @@
 from django.db import models
 
-from authapp import models as authapp_models
+from backend.authapp import models as authapp_models
 
 
 class ProjectManager(models.Manager):

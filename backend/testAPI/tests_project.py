@@ -1,9 +1,7 @@
 import pytest
 
-from mixer.backend.django import mixer
-
-from todoapp.models import Project
-from authapp.models import CustomUser
+from models import Project
+from backend.authapp.models import CustomUser
 
 # - Написать и протестировать метод модели Project, который выводит список имен всех участников проекта, для случаев:
 #   + в проекте есть пользователи с именами

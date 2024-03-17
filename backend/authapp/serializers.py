@@ -1,7 +1,7 @@
 from django.contrib.auth.hashers import make_password
 from rest_framework.serializers import HyperlinkedModelSerializer
 
-from authapp.models import CustomUser
+from backend.authapp.models import CustomUser
 
 
 class CustomUserModelSerializer(HyperlinkedModelSerializer):
