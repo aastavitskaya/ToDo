@@ -2,7 +2,7 @@ from django.test import TestCase
 
 from authapp.models import CustomUser
 from rest_framework import status
-from rest_framework.test import APIClient, APIRequestFactory, APISimpleTestCase, APITestCase, force_authenticate
+from rest_framework.test import APIClient, APIRequestFactory, APITestCase
 from mixer.backend.django import mixer
 
 from authapp.views import CustomUserModelViewSet

@@ -8,7 +8,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from mixer.backend.django import mixer
 
 from authapp.models import CustomUser
-from todoapp.models import Project
+from models import Project
 
 
 TEST_USER = 'test_user@mail.ru'
