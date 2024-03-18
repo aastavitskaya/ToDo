@@ -7,7 +7,7 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from graphene_django.views import GraphQLView
 
-from backend.authapp import CustomUserModelViewSet, WhoAmIView
+from authapp import CustomUserModelViewSet, WhoAmIView
 from todoapp.views import ProjectModelViewSet, ToDoModelViewSet
 
 router = DefaultRouter()

@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework_simplejwt",
     "rest_framework_simplejwt.token_blacklist",
-    "backend.authapp",
+    "authapp",
     "todoapp",
     "drf_yasg",
     "graphene_django",
@@ -64,7 +64,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
-ROOT_URLCONF = "backend.config.urls"
+ROOT_URLCONF = "config.urls"
 
 TEMPLATES = [
     {

@@ -1,11 +1,11 @@
 from django.test import TestCase
 
-from backend.authapp.models import CustomUser
+from authapp.models import CustomUser
 from rest_framework import status
 from rest_framework.test import APIClient, APIRequestFactory, APITestCase
 from mixer.backend.django import mixer
 
-from backend.authapp.views import CustomUserModelViewSet
+from authapp.views import CustomUserModelViewSet
 from todoapp.models import Project
 
 

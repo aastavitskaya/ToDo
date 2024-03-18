@@ -1,7 +1,7 @@
 import graphene
 from graphene_django import DjangoObjectType
 
-from backend.authapp.models import CustomUser
+from authapp.models import CustomUser
 from todoapp.models import Project, ToDo
 
 

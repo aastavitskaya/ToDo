@@ -7,7 +7,7 @@ from rest_framework.test import APIClient
 from rest_framework_simplejwt.tokens import RefreshToken
 from mixer.backend.django import mixer
 
-from backend.authapp.models import CustomUser
+from authapp.models import CustomUser
 from models import Project
 
 
