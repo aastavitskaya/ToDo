@@ -26,9 +26,14 @@ SECRET_KEY = "django-insecure-al1@98yyw)47b0%pns=d8h8y5xd4e7o9v^#oc)4sa)7=7e&#6c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "0.0.0.0",
+]
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:3000"]
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://0.0.0.0",
+]
 
 AUTH_USER_MODEL = "authapp.CustomUser"
 
