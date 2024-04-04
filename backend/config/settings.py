@@ -26,9 +26,14 @@ SECRET_KEY = "django-insecure-al1@98yyw)47b0%pns=d8h8y5xd4e7o9v^#oc)4sa)7=7e&#6c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:3000"]
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost",
+    "http://127.0.0.1",
+    "http://0.0.0.0",
+]
+
 
 AUTH_USER_MODEL = "authapp.CustomUser"
 
@@ -69,7 +74,7 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "frontend/build/"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -90,8 +95,12 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "hello_todo",
+        "USER": "hello_todo",
+        "PASSWORD": "hello_todo",
+        "HOST": "db",
+        "PORT": "5432",
     }
 }
 
