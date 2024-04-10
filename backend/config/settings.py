@@ -29,11 +29,11 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost",
-    "http://127.0.0.1",
-    "http://0.0.0.0",
+    "http://teisy.ru",
+    "http://89.111.170.175",
 ]
 
+CORS_ALLOW_ALL_ORIGINS = True
 
 AUTH_USER_MODEL = "authapp.CustomUser"
 
@@ -74,7 +74,7 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "frontend/build/"],
+        "DIRS": [BASE_DIR / "backend/"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -178,7 +178,7 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=56247),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "ROTATE_REFRESH_TOKENS": False,
 }
