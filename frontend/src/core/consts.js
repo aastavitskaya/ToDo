@@ -1,4 +1,4 @@
-export const Base_API_URL = "http://teisy.ru:8000";
+export const Base_API_URL = "https://teisy.ru:8000";
 
 export const USERS_API = Base_API_URL + "/api/users/";
 export const PROJECTS_API = Base_API_URL + "/api/projects/";
