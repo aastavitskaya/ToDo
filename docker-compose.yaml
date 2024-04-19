@@ -25,7 +25,8 @@ services:
       network: host
     ports:
       - "8080:8080"
-    command: bash -c "python3 manage.py migrate && gunicorn config.wsgi:application -b 0.0.0.0:8080"
+    # разрешаем гуникорну брать трубки с незнакомых номеров, принимать защищенные заголовки с известных ip-адресов
+    command: bash -c "python3 manage.py migrate && gunicorn config.wsgi:application --forwarded-allow-ips="teisy.ru" -b 0.0.0.0:8080"
     depends_on:
       db:
         condition: service_healthy
@@ -34,6 +35,9 @@ services:
     build: ./nginx
     ports:
       - "8000:8000"
+    # бросаем ключи в контейнер:
+    volumes:
+      - /etc/letsencrypt/:/etc/letsencrypt/
     depends_on:
       - web
 
@@ -41,6 +45,11 @@ services:
     build: ./frontend
     ports:
       - "80:80"
+      # открываем для фронта порт с https по умолчанию
+      - "443:443"
+    # бросаем ключи в контейнер:
+    volumes:
+      - /etc/letsencrypt/:/etc/letsencrypt/
     depends_on:
       - nginx
 
